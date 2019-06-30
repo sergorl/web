@@ -1,3 +1,5 @@
+
+mkdir ../etc 
 sudo mv -f ./etc/hello.py /home/box/etc/
 
 sudo ln -sf /home/box/web/etc/nginx.conf /etc/nginx/sites-enabled/test.conf
