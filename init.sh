@@ -2,7 +2,7 @@
 mkdir ../etc 
 sudo mv -f ./etc/hello.py /home/box/etc/
 
-rm -rf /etc/nginx/nginx.conf 
+sudo rm -rf /etc/nginx/nginx.conf 
 sudo mv -f /home/box/web/etc/nginx.conf /etc/nginx/
 
 sudo rm -rf /etc/nginx/sites-enabled/default
