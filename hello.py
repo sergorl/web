@@ -1,14 +1,15 @@
-from cgi import parse_qs
+import re
 
 
 def app(environ, start_response):
 
-    qs = parse_qs(environ['QUERY_STRING'])
+    content = [v + '\n' for v in re.findall(r'(\w+\=\w+)', environ['QUERY_STRING'])]
 
+    status = '200 OK'
     response_headers = [
         ('Content-type', 'text/plain'),
+        ('Content-Length', str(len(content)))
     ]
-    start_response('200 OK', response_headers)
+    start_response(status, response_headers)
 
-    return ['%s=%s<br>' % (k, qs[k][0]) for k in qs]
-
+    return iter(content)
