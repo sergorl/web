@@ -3,7 +3,7 @@ import re
 
 def app(environ, start_response):
 
-    content = [v + '\n' for v in re.findall(r'(\w+\=\w+)', environ['QUERY_STRING'])]
+    content = [v for v in re.findall(r'(\w+\=\w+)', environ['QUERY_STRING'])]
 
     status = '200 OK'
     response_headers = [
@@ -13,3 +13,4 @@ def app(environ, start_response):
     start_response(status, response_headers)
 
     return iter(content)
+    
