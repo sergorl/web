@@ -12,4 +12,4 @@ def app(environ, start_response):
     ]
     start_response(status, response_headers)
 
-    return content
+    return [bytes(content, 'utf-8')]
